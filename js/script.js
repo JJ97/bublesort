@@ -6,10 +6,10 @@
     newSong();
     var p = document.getElementById("numbers");
     var numbers = [];
-    for (var i = 0; i < n - 1; i++){ 
+    for (var i = 0; i < n - 1; i++){
         span = document.createElement("span");
         numbers.push(span);
-        p.appendChild(span); 
+        p.appendChild(span);
     }
     setStartingNumbers(numbers);
     setInterval(function(){ bubleStep(numbers); }, 50);
@@ -25,6 +25,17 @@ function bubleStep(numbers){
             numbers[i].innerHTML = b;
             numbers[i+1].innerHTML = a;
             swapped = true;
+
+            if (a === 420) {
+                numbers[i+1].className = "spin";
+            } else {
+                numbers[i+1].className = "";
+            }
+            if (b === 420) {
+                numbers[i].className = "spin";
+            } else {
+                numbers[i].className = "";
+            }
         }
     }
 
@@ -35,7 +46,14 @@ function bubleStep(numbers){
 }
 
 function setStartingNumbers(numbers){
-    for (var i = 0; i < n - 1; i++){ numbers[i].innerHTML = Math.round(Math.random() * (max - min) + min); }
+    for (var i = 0; i < n - 1; i++){
+        if (i === Math.round(n / 2)) {
+            // ensure at least one meme is shown
+            numbers[i].innerHTML = "420";
+        } else {
+            numbers[i].innerHTML = Math.round(Math.random() * (max - min) + min);
+        }
+    }
 }
 
 function newSong(){

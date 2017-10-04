@@ -1,6 +1,23 @@
 
+html {
+    background-image: url("buble.jpg");
+}
+
 span {
     word-wrap: normal;
     display: inline-block;
     padding-right: 10px;
+}
+
+.spin {
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    font-size: 1.5em;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
