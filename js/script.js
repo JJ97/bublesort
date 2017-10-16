@@ -28,12 +28,15 @@ function bubleStep(numbers){
 
             if (a === 420) {
                 numbers[i+1].className = "spin";
-            } else {
+                buble_buble_toil_and_trouble();
+            }
+            else {
                 numbers[i+1].className = "";
             }
             if (b === 420) {
                 numbers[i].className = "spin";
-            } else {
+            }
+            else {
                 numbers[i].className = "";
             }
         }
@@ -42,7 +45,19 @@ function bubleStep(numbers){
     if (!swapped){
         setStartingNumbers(numbers);
         newSong();
+
     }
+}
+
+function buble_buble_toil_and_trouble(){
+  console.log("Bubble it up");
+  var gifLocation = document.getElementById("background");
+  var newGif = document.createElement("img");
+  newGif.className = "buble_";
+  var juicyGifs = ['css/buble.gif', 'css/buble2.gif', 'css/buble3.gif', 'css/buble4.gif'];
+  newGif.src = juicyGifs[parseInt(Math.random() * juicyGifs.length)];
+  newGif.class = "buble_";
+  gifLocation.appendChild(newGif);
 }
 
 function setStartingNumbers(numbers){
