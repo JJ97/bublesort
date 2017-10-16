@@ -44,11 +44,11 @@ function bubleStep(numbers){
     if (!swapped){
         setStartingNumbers(numbers);
         newSong();
-        buble_buble_toil_and_trouble();
+        bubleBubleToilAndTrouble();
     }
 }
 
-function buble_buble_toil_and_trouble(){
+function bubleBubleToilAndTrouble(){
   console.log("Bubble it up");
   var gifLocation = document.getElementById("background");
   var newGif = document.createElement("img");
