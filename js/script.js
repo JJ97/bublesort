@@ -28,7 +28,6 @@ function bubleStep(numbers){
 
             if (a === 420) {
                 numbers[i+1].className = "spin";
-                buble_buble_toil_and_trouble();
             }
             else {
                 numbers[i+1].className = "";
@@ -45,7 +44,7 @@ function bubleStep(numbers){
     if (!swapped){
         setStartingNumbers(numbers);
         newSong();
-
+        buble_buble_toil_and_trouble();
     }
 }
 
