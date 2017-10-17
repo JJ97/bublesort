@@ -4,7 +4,7 @@ if (x) {
   y;
 }
 else {
-  z:
+  z;
 }
 ```
 
@@ -48,5 +48,12 @@ if (x)
           {
             z;
           }
+```
+
+
+👌🏻 A G I L E 👌🏻 APPROACH:
+
+```javascript
+x ? y; : z;
 ```
 Fight me Mike.
