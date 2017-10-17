@@ -56,4 +56,28 @@ if (x)
 ```javascript
 x ? y; : z;
 ```
+
+GOTTA REACH MY WORK COUNT APPROACH
+
+```java
+private enum Bewl {
+  TRU, FOLS
+}
+Bewl result = Bewl.FOLS;
+if(x) { result = Bewl.TRU; }
+
+switch(result){
+  case(TRU):
+    y;
+    break;
+  case(FOLS):
+    z;
+    break;
+  default:
+    // choose a different degree
+    break;
+}
+
+```
+
 Fight me Mike.
