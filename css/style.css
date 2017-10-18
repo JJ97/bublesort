@@ -3,6 +3,11 @@ html {
     background-image: url("buble.jpg");
 }
 
+body {
+    margin: 5%;
+    font-family: 'Satisfy', cursive;
+}
+
 #background {
   position: fixed;
   height: 100%;
@@ -20,10 +25,13 @@ html {
 .buble_ {
   filter: blur(0.9);
   flex: 1;
-  flex-shrink: 1;
 
   height: 10vh;
   width: auto;
+}
+
+h1 {
+    text-align: center;
 }
 
 
