@@ -20,8 +20,8 @@ function bubleStep(numbers){
     var swapped = false;
     for (var i = 0; i < n - 2; i++) {
         var a = parseInt(numbers[i].innerHTML);
-        var b = parseInt(numbers[i+1].innerHTML)
-        if ( a > b) {
+        var b = parseInt(numbers[i+1].innerHTML);
+        if (a > b) {
             numbers[i].innerHTML = b;
             numbers[i+1].innerHTML = a;
             swapped = true;
@@ -48,15 +48,12 @@ function bubleStep(numbers){
     }
 }
 
-function bubleBubleToilAndTrouble(){
-  console.log("Bubble it up");
-  var gifLocation = document.getElementById("background");
+function bubleBubleToilAndTrouble()/* loads a new random gif into the background element */{
   var newGif = document.createElement("img");
   newGif.className = "buble_";
-  var juicyGifs = ['css/buble.gif', 'css/buble2.gif', 'css/buble3.gif', 'css/buble4.gif'];
-  newGif.src = juicyGifs[parseInt(Math.random() * juicyGifs.length)];
-  newGif.class = "buble_";
-  gifLocation.appendChild(newGif);
+  var juicyGifs = ['css/buble.gif', 'css/buble2.gif', 'css/buble3.gif', 'css/buble4.gif'];  // define list of gifs
+  newGif.src = juicyGifs[parseInt(Math.random() * juicyGifs.length)];                       // select a random gif
+  document.getElementById("background").appendChild(newGif);
 }
 
 function setStartingNumbers(numbers){
@@ -71,8 +68,8 @@ function setStartingNumbers(numbers){
 }
 
 function newSong(){
-    var songContainer = document.getElementById("song-container");
     var newSong = document.createElement("iframe");
-    newSong.src = "https://www.youtube.com/embed/EyKMPXqKlFk?autoplay=1";
-    songContainer.appendChild(newSong);
+    var bubleSongs = ['EyKMPXqKlFk', 'Kb5lkrRGY78', 'yRi0IW5p7dY', 'WjuArboUAQs', 'rkUkilQn3aM', 'wBp-fjOPiTc', 'v6PwrL_v4H8'];
+    newSong.src = "https://www.youtube.com/embed/"+bubleSongs[parseInt(Math.random() * bubleSongs.length)]+"?autoplay=1";
+    document.getElementById("song-container").appendChild(newSong);
 }
