@@ -57,13 +57,11 @@ function bubleBubleToilAndTrouble()/* loads a new random gif into the background
 }
 
 function setStartingNumbers(numbers){
+
     for (var i = 0; i < n - 1; i++){
-        if (i === Math.round(n / 2)) {
-            // ensure at least one meme is shown
-            numbers[i].innerHTML = "420";
-        } else {
-            numbers[i].innerHTML = Math.round(Math.random() * (max - min) + min);
-        }
+        let number = i === Math.round(n / 2) ? 420 : Math.round(Math.random() * (max - min) + min);;
+        numbers[i].innerHTML = number;
+        numbers[i].style.backgroundColor = `hsl(${(number / max) * 100}, 100%, 50%)`;
     }
 }
 

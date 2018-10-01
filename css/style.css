@@ -42,7 +42,8 @@ h1 {
 span {
     word-wrap: normal;
     display: inline-block;
-    padding-right: 10px;
+    padding: 5px;
+    border-radius: 50%;
 }
 
 .spin {
