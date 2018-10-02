@@ -67,7 +67,8 @@ function setStartingNumbers(numbers){
 
 function newSong(){
     var newSong = document.createElement("iframe");
-    var bubleSongs = ['EyKMPXqKlFk', 'Kb5lkrRGY78', 'yRi0IW5p7dY', 'WjuArboUAQs', 'rkUkilQn3aM', 'wBp-fjOPiTc', 'v6PwrL_v4H8'];
+    newSong.setAttribute("allow", "autoplay");
+    var bubleSongs = ['QJ5DOWPGxwg', 'R8CBoVc_OMI', 'Nx-DvH41Tjo', '30TkClWvT5k', 'pw3PhhSfcQg', 'l3l83C-we-k', '0yhI35F2NB0'];
     newSong.src = "https://www.youtube.com/embed/"+bubleSongs[parseInt(Math.random() * bubleSongs.length)]+"?autoplay=1";
     document.getElementById("song-container").appendChild(newSong);
 }
