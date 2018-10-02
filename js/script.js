@@ -20,20 +20,22 @@ function bubleStep(numbers){
     var swapped = false;
     for (var i = 0; i < n - 2; i++) {
         var a = parseInt(numbers[i].innerHTML);
-        var b = parseInt(numbers[i+1].innerHTML)
-        if ( a > b) {
+        var b = parseInt(numbers[i+1].innerHTML);
+        if (a > b) {
             numbers[i].innerHTML = b;
             numbers[i+1].innerHTML = a;
             swapped = true;
 
             if (a === 420) {
                 numbers[i+1].className = "spin";
-            } else {
+            }
+            else {
                 numbers[i+1].className = "";
             }
             if (b === 420) {
                 numbers[i].className = "spin";
-            } else {
+            }
+            else {
                 numbers[i].className = "";
             }
         }
@@ -42,23 +44,30 @@ function bubleStep(numbers){
     if (!swapped){
         setStartingNumbers(numbers);
         newSong();
+        bubleBubleToilAndTrouble();
     }
 }
 
+function bubleBubleToilAndTrouble()/* loads a new random gif into the background element */{
+  var newGif = document.createElement("img");
+  newGif.className = "buble_";
+  var juicyGifs = ['css/buble.gif', 'css/buble2.gif', 'css/buble3.gif', 'css/buble4.gif'];  // define list of gifs
+  newGif.src = juicyGifs[parseInt(Math.random() * juicyGifs.length)];                       // select a random gif
+  document.getElementById("background").appendChild(newGif);
+}
+
 function setStartingNumbers(numbers){
+
     for (var i = 0; i < n - 1; i++){
-        if (i === Math.round(n / 2)) {
-            // ensure at least one meme is shown
-            numbers[i].innerHTML = "420";
-        } else {
-            numbers[i].innerHTML = Math.round(Math.random() * (max - min) + min);
-        }
+        let number = i === Math.round(n / 2) ? 420 : Math.round(Math.random() * (max - min) + min);;
+        numbers[i].innerHTML = number;
+        numbers[i].style.backgroundColor = `hsl(${(number / max) * 100}, 100%, 50%)`;
     }
 }
 
 function newSong(){
-    var songContainer = document.getElementById("song-container");
     var newSong = document.createElement("iframe");
-    newSong.src = "https://www.youtube.com/embed/EyKMPXqKlFk?autoplay=1";
-    songContainer.appendChild(newSong);
+    var bubleSongs = ['EyKMPXqKlFk', 'Kb5lkrRGY78', 'yRi0IW5p7dY', 'WjuArboUAQs', 'rkUkilQn3aM', 'wBp-fjOPiTc', 'v6PwrL_v4H8'];
+    newSong.src = "https://www.youtube.com/embed/"+bubleSongs[parseInt(Math.random() * bubleSongs.length)]+"?autoplay=1";
+    document.getElementById("song-container").appendChild(newSong);
 }
