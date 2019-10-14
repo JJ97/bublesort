@@ -1,6 +1,6 @@
  n = 500;
- min = 100;
- max = 999;
+ minSorting = 100;
+ maxSorting = 999;
 
  window.onload = function(){
     newSong();
@@ -59,9 +59,9 @@ function bubleBubleToilAndTrouble()/* loads a new random gif into the background
 function setStartingNumbers(numbers){
 
     for (var i = 0; i < n - 1; i++){
-        let number = i === Math.round(n / 2) ? 420 : Math.round(Math.random() * (max - min) + min);;
+        let number = i === Math.round(n / 2) ? 420 : Math.round(Math.random() * (maxSorting - minSorting) + minSorting);;
         numbers[i].innerHTML = number;
-        numbers[i].style.backgroundColor = `hsl(${(number / max) * 100}, 100%, 50%)`;
+        numbers[i].style.backgroundColor = `hsl(${(number / maxSorting) * 100}, 100%, 50%)`;
     }
 }
 
