@@ -9,6 +9,27 @@ let quickdrawsketch = function(p) {
     let prevX, prevY;
     let drawings = [];
 
+    let ready = 0;
+    const totalReadyNeeded = 3;
+
+    function shuffleDrawingsInPlace(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
+
+    function notifyReady() {
+        ready++;
+        if (ready === totalReadyNeeded) {
+            shuffleDrawingsInPlace(drawings);
+        }
+    }
+
     p.preload = function() {
         p.loadStrings("ndjson/full_simplified_snowflake.ndjson", function(full_file) {
             for (var i = 0; i < full_file.length; i++) {
@@ -16,6 +37,23 @@ let quickdrawsketch = function(p) {
                     drawings.push(JSON.parse(full_file[i])["drawing"]);
                 }
             }
+            notifyReady();
+        });
+        p.loadStrings("ndjson/reduced_snowman.ndjson", function(full_file) {
+            for (var i = 0; i < full_file.length; i++) {
+                if (full_file[i].trim().length > 0) {
+                    drawings.push(JSON.parse(full_file[i])["drawing"]);
+                }
+            }
+            notifyReady();
+        });
+        p.loadStrings("ndjson/reduced_angel.ndjson", function(full_file) {
+            for (var i = 0; i < full_file.length; i++) {
+                if (full_file[i].trim().length > 0) {
+                    drawings.push(JSON.parse(full_file[i])["drawing"]);
+                }
+            }
+            notifyReady();
         });
     }
 
