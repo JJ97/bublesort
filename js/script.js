@@ -22,8 +22,11 @@ function bubleStep(numbers){
         var a = parseInt(numbers[i].innerHTML);
         var b = parseInt(numbers[i+1].innerHTML);
         if (a > b) {
+            let iBackground = numbers[i].style.backgroundColor;
             numbers[i].innerHTML = b;
+            numbers[i].style.backgroundColor = numbers[i+1].style.backgroundColor;
             numbers[i+1].innerHTML = a;
+            numbers[i+1].style.backgroundColor = iBackground;
             swapped = true;
 
             if (a === 420) {
@@ -61,7 +64,7 @@ function setStartingNumbers(numbers){
     for (var i = 0; i < n - 1; i++){
         let number = i === Math.round(n / 2) ? 420 : Math.round(Math.random() * (maxSorting - minSorting) + minSorting);;
         numbers[i].innerHTML = number;
-        numbers[i].style.backgroundColor = `hsl(${(number / maxSorting) * 100}, 100%, 50%)`;
+        numbers[i].style.backgroundColor = `hsl(${(number / (maxSorting - minSorting)) * 100}, 100%, 50%)`;
     }
 }
 
